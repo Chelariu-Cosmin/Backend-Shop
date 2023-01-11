@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Order Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<style>
+    .navbar {
+        background-color: green;
+    }
+</style>
+<body>
+
+<!-- create navigation bar ( header) -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false"
+                    class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse"
+                    type="button">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
+                Login </a>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- Create HTML registration form -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <!-- success message -->
+            <div th:if="${param.success}">
+                <div class="alert alert-info">You've successfully ordered
+                    to our awesome app!
+                </div>
+            </div>
+
+            <h1>Order details</h1>
+
+            <form method="post" th:action="@{/pay}" th:object="${order}">
+                <div class="form-group">
+                    <label class="control-label" for="price">Price</label>
+                    <input autofocus="autofocus" class="form-control" id="price"
+                           field="*{order.price}" name="price"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="currency"> Currency </label> <input
+                        autofocus="autofocus" class="form-control" id="currency"
+                        field="*{order.currency}" name="currency"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="method"> Method </label> <input
+                        autofocus="autofocus" class="form-control" id="method" required
+                        field="*{order.method}" name="method"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="intent"> Intent </label> <input
+                        autofocus="autofocus" class="form-control" id="intent"
+                        field="*{order.intent}" type="text" name="intent"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="description"> Description </label> <input
+                        autofocus="autofocus" class="form-control" id="description"
+                        field="*{order.description}" type="text" name="description"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Continue to checkout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

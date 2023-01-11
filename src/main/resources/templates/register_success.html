@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Ordered Success</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <h2>Order Details Succeeded!</h2>
+    <span>Price:</span><span th:text="${order.price}"></span><br/>
+    <span>currency:</span><span th:text="${order.currency}"></span><br/>
+    <span>method:</span><span th:text="${order.method}"></span><br/>
+    <span>intent:</span><span th:text="${order.intent}"></span><br/>
+    <span>description:</span><span th:text="${order.description}"></span><br/>
+</div>
+</body>
+</html>
