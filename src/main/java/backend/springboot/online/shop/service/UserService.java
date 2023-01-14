@@ -5,7 +5,6 @@ import backend.springboot.online.shop.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService extends UserDetailsService {
 
@@ -13,8 +12,10 @@ public interface UserService extends UserDetailsService {
 
     List<User> getAll();
 
-    Optional<User> find(Long id);
+    User find(Long id);
 
     void delete(Long id);
+
+    Long addUser(User user);
 
 }

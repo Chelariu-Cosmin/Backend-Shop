@@ -45,11 +45,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests ()
-            .antMatchers (HttpMethod.GET,"/","/success", "/cancel", "/js/**", "/css/**", "/img/**").permitAll ()
-            .antMatchers ("/registration**", "/index**","/home","/register_success").permitAll ()
-                .antMatchers (HttpMethod.GET, "/api/v1/article/**", "/api/v1/users/**", "/api/v1/orders/*").permitAll ()
-                    .antMatchers (HttpMethod.POST, "/api/v1/article/**", "/api/v1/users/**", "/api/v1/orders/*").permitAll ()
-                         .antMatchers (HttpMethod.DELETE, "/api/v1/article/**", "/api/v1/users/**", "/api/v1/orders/*").permitAll ()
+            .antMatchers (HttpMethod.GET, "/", "/success", "/cancel", "/js/**", "/css/**", "/img/**")
+            .permitAll ()
+            .antMatchers ("/registration**", "/index**", "/home", "/register_success")
+            .permitAll ()
+            .antMatchers ("/api/v1/article/**", "/api/v1/users/", "/api/v1/orders/*")
+            .permitAll ()
             .anyRequest ()
             .authenticated ()
             .and ()
@@ -57,12 +58,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .loginPage ("/login")
             .permitAll ()
             .and ()
+            .httpBasic ()
+            .and ()
             .logout ()
             .invalidateHttpSession (true)
             .clearAuthentication (true)
             .logoutRequestMatcher (new AntPathRequestMatcher ("/logout"))
             .logoutSuccessUrl ("/login?logout")
             .permitAll ();
-     //   http.cors().disable().csrf().disable();
+        //TODO: Only for testing endpoints
+        http.csrf ()
+            .disable ();
     }
 }

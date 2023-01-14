@@ -3,14 +3,12 @@ package backend.springboot.online.shop.web;
 import backend.springboot.online.shop.model.OrderDetails;
 import backend.springboot.online.shop.service.OrderDetailsService;
 import backend.springboot.online.shop.service.PaypalService;
-import com.paypal.api.payments.Links;
-import com.paypal.api.payments.Payment;
-import com.paypal.base.rest.PayPalRESTException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/orderDetails")
@@ -59,7 +57,7 @@ public class PayPalController {
 //        }
 //        return "success";
 //    }
-
+//
 //    @GetMapping(value = CANCEL_URL)
 //    public String cancelPay() {
 //        return "cancel";

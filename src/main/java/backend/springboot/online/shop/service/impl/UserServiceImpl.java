@@ -12,12 +12,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -67,9 +66,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> find(Long id) {
+    public User find(Long id) throws NoSuchElementException {
 
-        return userRepository.findById (id);
+        return userRepository.findById (id)
+                             .orElseThrow (NoSuchElementException::new);
     }
 
     @Override
@@ -78,5 +78,9 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById (id);
     }
 
-
+    @Override
+    public Long addUser(User user) {
+        return userRepository.save (user)
+                             .getId ();
+    }
 }

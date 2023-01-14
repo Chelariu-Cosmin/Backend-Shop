@@ -15,5 +15,4 @@ public class ArticleDto {
     private String description;
     private BigDecimal price;
     private String photo;
-    //Optional. Depinde ce vrei sa trimiti din frontend si cum
 }

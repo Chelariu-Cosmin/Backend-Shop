@@ -19,4 +19,5 @@ public class Role extends BaseId {
     public Role(String name) {
         this.name = name;
     }
+
 }

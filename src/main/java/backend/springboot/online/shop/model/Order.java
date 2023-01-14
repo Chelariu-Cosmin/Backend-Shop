@@ -36,9 +36,9 @@ public class Order extends BaseId {
     @NotNull
     private Integer units;
 
-//    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY, optional = false)
-//    private OrderDetails details;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    private OrderDetails details;
 
 }
 

@@ -1,4 +1,12 @@
-# Registration and Login with Spring Boot + Spring Security + Thymeleaf
+# Online Shop Backend Spring Boot + Spring Security + Thymeleaf
+
+# Technologies: Spring Boot, Hibernate, JPA, Postgres
+
+# IDE: IntelliJ Ultimate
+
+# Libraries: Lombok, Validation, etc
+
+# PayPal Integration backend
 
 # User Registration
 
@@ -26,4 +34,4 @@ Step 2:  ```mvn clean install```
 
 Step 3:  ```mvn spring-boot:run```
 
-# From the browser call the endpoint http://localhost:8080
+# From the browser call the endpoint http://localhost:9090
